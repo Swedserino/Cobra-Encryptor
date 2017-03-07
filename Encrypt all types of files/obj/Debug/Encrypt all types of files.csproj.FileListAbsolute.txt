@@ -1,0 +1,9 @@
+D:\programs\Encrypt all types of files\Encrypt all types of files\bin\Debug\Encrypt all types of files.exe.config
+D:\programs\Encrypt all types of files\Encrypt all types of files\bin\Debug\Encrypt all types of files.exe
+D:\programs\Encrypt all types of files\Encrypt all types of files\bin\Debug\Encrypt all types of files.pdb
+D:\programs\Encrypt all types of files\Encrypt all types of files\obj\Debug\Encryption_algo.Form1.resources
+D:\programs\Encrypt all types of files\Encrypt all types of files\obj\Debug\Encryption_algo.Properties.Resources.resources
+D:\programs\Encrypt all types of files\Encrypt all types of files\obj\Debug\Encrypt all types of files.csproj.GenerateResource.Cache
+D:\programs\Encrypt all types of files\Encrypt all types of files\obj\Debug\Encrypt all types of files.exe
+D:\programs\Encrypt all types of files\Encrypt all types of files\obj\Debug\Encrypt all types of files.pdb
+D:\programs\Encrypt all types of files\Encrypt all types of files\obj\Debug\Encrypt all types of files.csprojResolveAssemblyReference.cache
