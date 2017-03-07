@@ -1,0 +1,9 @@
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\bin\Debug\Encryption algo.exe.config
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\bin\Debug\Encryption algo.exe
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\bin\Debug\Encryption algo.pdb
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\obj\Debug\Encryption algo.csprojResolveAssemblyReference.cache
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\obj\Debug\Encryption_algo.Form1.resources
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\obj\Debug\Encryption_algo.Properties.Resources.resources
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\obj\Debug\Encryption algo.csproj.GenerateResource.Cache
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\obj\Debug\Encryption algo.exe
+C:\Users\Sebbe\AppData\Local\Temporary Projects\Encryption algo\obj\Debug\Encryption algo.pdb
