@@ -3,6 +3,7 @@ Encrypts all types of files with a random salt that is 100 chars long and a key 
 
 # Example Video
 Example video showing DIRECTORY encryption: https://youtu.be/L9662lKcG6Y
+
 Example video showing FILE encryption: https://youtu.be/9cOmW9t3P1Q
 
 # Download Link
