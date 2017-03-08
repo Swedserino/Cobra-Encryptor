@@ -11,5 +11,7 @@ If you don't want this messy code (Sorry. Too lazy to actually make it nice) you
 
 # Changelog
 Update 1.3: Added automatic updates.
+
 Update 1.2: Added directory encryption. Fixed crash on start.
+
 Update 1.1: Randomizes salt. Key is also 100 chars of length and not 30. Same with salt.
