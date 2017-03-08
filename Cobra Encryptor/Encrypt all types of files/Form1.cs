@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Resources;
 using System.Runtime.InteropServices;
-using Ionic.Zip;
 using System.Net;
 using System.Threading;
 
@@ -46,6 +45,66 @@ namespace Encryption_algo
 
         #endregion
 
+        #region Checks For Update
+        private void checkupdate()
+        {
+            try
+            {          
+            WebClient client = new WebClient();
+            client.DownloadFile("https://www.dropbox.com/s/fh4uadda762eb2p/update.txt?dl=1", Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Updates.txt");
+
+                StreamReader reader = new StreamReader(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Updates.txt");
+                string updatee = reader.ReadToEnd();
+                reader.Close();
+
+                if (updatee.Contains("1.3") == false)
+            {
+                DialogResult result = MessageBox.Show("Update available. Do you want to download?", "Update", MessageBoxButtons.YesNoCancel);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    Directory.CreateDirectory(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor");
+
+                    File.Create(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\location.txt").Dispose();
+
+                    
+
+                    StreamWriter writer = new StreamWriter(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\location.txt");
+                    writer.Write(Application.ExecutablePath);
+                    writer.Close();
+
+
+                    client.DownloadFile("https://www.dropbox.com/s/02abkkxuqy10z0d/Updating%20files.exe?dl=1", Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Cobra Updater.exe");
+                    //client.DownloadFile("https://www.dropbox.com/s/5rqj05nnrxtze3q/Cobra%20Encryptor.exe?dl=1", Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Cobra Encryptor.exe");
+
+                    System.Diagnostics.Process.Start(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Cobra Updater.exe");
+
+                        this.Close();
+                }
+                else if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                else if (result == DialogResult.Cancel)
+                    {
+                        this.Close();
+                    }
+
+            }
+            
+                {
+
+                }
+
+            }
+            catch
+            {
+                this.Close();
+            }
+        }
+        #endregion
+
         #region Form1 Load
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -55,9 +114,8 @@ namespace Encryption_algo
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
 
-            /*WebClient client = new WebClient();
-            client.DownloadFile("http://download1642.mediafire.com/98p5j3neg8ag/266m5mmg8tmmv9q/DotNetZip.dll", Environment.SpecialFolder.LocalApplicationData + @"\CobraEncryptor" + @"\DotNetZip.dll");
-            */
+            checkupdate();
+
         }
 
         public Form1()
