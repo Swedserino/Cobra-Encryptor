@@ -57,9 +57,10 @@ namespace Encryption_algo
                 string updatee = reader.ReadToEnd();
                 reader.Close();
 
-                if (updatee.Contains("1.3") == false)
-            {
-                DialogResult result = MessageBox.Show("Update available. Do you want to download?", "Update", MessageBoxButtons.YesNoCancel);
+                if (updatee.Contains("1.3.1") == false)
+                {
+
+                DialogResult result = MessageBox.Show("Version " + updatee.ToString() + " available. " + "Do you want to download?", "Update", MessageBoxButtons.YesNoCancel);
 
                 if (result == DialogResult.Yes)
                 {
