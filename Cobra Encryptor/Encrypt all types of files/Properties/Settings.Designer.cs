@@ -70,5 +70,27 @@ namespace Encryption_algo.Properties {
                 this["Salt2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color Color {
+            get {
+                return ((global::System.Drawing.Color)(this["Color"]));
+            }
+            set {
+                this["Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color Color2 {
+            get {
+                return ((global::System.Drawing.Color)(this["Color2"]));
+            }
+            set {
+                this["Color2"] = value;
+            }
+        }
     }
 }

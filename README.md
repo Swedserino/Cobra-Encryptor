@@ -10,6 +10,8 @@ Example video showing FILE encryption: https://youtu.be/9cOmW9t3P1Q
 If you don't want this messy code (Sorry. Too lazy to actually make it nice) you can always download it right here: https://www.dropbox.com/s/q8vlkrmehh37xr6/Cobra%20Encryptor.exe?dl=1
 
 # Changelog
+Update 1.3.2: Added color options.
+
 Update 1.3.1: Added some stuff.
 
 Update 1.3: Added automatic updates.

@@ -18,7 +18,7 @@ namespace Encryption_algo
     public partial class Form1 : Form
     {
         #region Random functions
-        // Generates a random integer for password
+        // Never used. It generates a random integer
         private int RandomInt(int lenght)
         {
 
@@ -28,7 +28,7 @@ namespace Encryption_algo
             return tmp;
 
         }
-        // Never used. Use it in other projects if you want too. It generates a ranodom string
+        // Generates a random string for password
         private string RandomString(int length)
         {
             string pool = "abcdefghijklmnopqrstuvwxyz!#¤%&/()=?}][{€$£@";
@@ -57,7 +57,7 @@ namespace Encryption_algo
                 string updatee = reader.ReadToEnd();
                 reader.Close();
 
-                if (updatee.Contains("1.3.1") == false)
+                if (updatee.Contains("1.3.2") == false)
                 {
 
                 DialogResult result = MessageBox.Show("Version " + updatee.ToString() + " available. " + "Do you want to download?", "Update", MessageBoxButtons.YesNoCancel);
@@ -115,13 +115,22 @@ namespace Encryption_algo
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
 
-            checkupdate();
+
+            listBox1.BackColor = Properties.Settings.Default.Color2;
+            listBox1.ForeColor = Properties.Settings.Default.Color;
+            textBox1.ForeColor = Properties.Settings.Default.Color;
+            textBox1.BackColor = Properties.Settings.Default.Color2;
+            this.ForeColor = Properties.Settings.Default.Color;
+            this.BackColor = Properties.Settings.Default.Color2;
+
+            backgroundWorker1.RunWorkerAsync();
 
         }
 
         public Form1()
         {
             InitializeComponent();
+            MaximizeBox = false;
         }
 
         #endregion
@@ -545,6 +554,55 @@ namespace Encryption_algo
                         label1.Visible = true;
                     }
                 }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult result = colorDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.ForeColor = colorDialog1.Color;
+                listBox1.ForeColor = colorDialog1.Color;
+                textBox1.ForeColor = colorDialog1.Color;
+                Properties.Settings.Default.Color = this.ForeColor;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult result = colorDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                this.BackColor = colorDialog1.Color;
+                listBox1.BackColor = colorDialog1.Color;
+                textBox1.BackColor = colorDialog1.Color;
+                Properties.Settings.Default.Color2 = this.BackColor;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Black;
+            this.ForeColor = Color.DarkCyan;
+            textBox1.ForeColor = Color.DarkCyan;
+            textBox1.BackColor = Color.Black;
+            listBox1.BackColor = Color.Black;
+            listBox1.ForeColor = Color.DarkCyan;
+            Properties.Settings.Default.Color2 = Color.Black;
+            Properties.Settings.Default.Color = Color.DarkCyan;
+            Properties.Settings.Default.Save();
+        }
+
+        #endregion
+
+        #region BackgroundWorkers
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            checkupdate();
         }
         #endregion
     }
