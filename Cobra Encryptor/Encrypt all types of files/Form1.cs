@@ -46,7 +46,7 @@ namespace Encryption_algo
         #endregion
 
         #region Checks For Update
-        private void checkupdate()
+        /*private void checkupdate()
         {
             try
             {          
@@ -103,6 +103,57 @@ namespace Encryption_algo
             {
                 this.Close();
             }
+        }*/
+        #endregion
+
+        #region Checks For Update 2
+        void checkupdate()
+        {
+            try
+            {
+                WebClient client = new WebClient();
+                string updatee = client.DownloadString("https://swedswebsite.000webhostapp.com/Updater/Cobra_Encrypt.txt");
+
+                if (updatee.Contains("1.3.3") == false)
+                {
+
+                    DialogResult result = MessageBox.Show("Version " + updatee.ToString() + " available. " + "Do you want to download?", "Update", MessageBoxButtons.YesNoCancel);
+
+                    if (result == DialogResult.Yes)
+                    {
+
+                        Directory.CreateDirectory(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor");
+
+                        File.Create(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\location.txt").Dispose();
+
+
+
+                        StreamWriter writer = new StreamWriter(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\location.txt");
+                        writer.Write(Application.ExecutablePath);
+                        writer.Close();
+
+
+                        client.DownloadFile("https://swedswebsite.000webhostapp.com/Updater/Updaters/Cobra%20Updater.exe", Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Cobra Updater.exe");
+                        //client.DownloadFile("https://swedswebsite.000webhostapp.com/Updater/Cobra_Encrypt.txt", Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Cobra Encryptor.exe");
+
+                        System.Diagnostics.Process.Start(Environment.GetEnvironmentVariable("LocalAppData") + @"\Cobra Encryptor\Cobra Updater.exe");
+                        
+                        this.Close();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                    else if (result == DialogResult.Cancel)
+
+                        this.Close();
+                }
+
+            }
+            catch
+            {
+                this.Close();
+            }
         }
         #endregion
 
@@ -115,13 +166,20 @@ namespace Encryption_algo
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
 
-
+            try
+            {
             listBox1.BackColor = Properties.Settings.Default.Color2;
             listBox1.ForeColor = Properties.Settings.Default.Color;
             textBox1.ForeColor = Properties.Settings.Default.Color;
             textBox1.BackColor = Properties.Settings.Default.Color2;
             this.ForeColor = Properties.Settings.Default.Color;
             this.BackColor = Properties.Settings.Default.Color2;
+            }
+            catch
+            {
+
+            }
+
 
             backgroundWorker1.RunWorkerAsync();
 
@@ -520,13 +578,6 @@ namespace Encryption_algo
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Sets random string everytime we press this button
-            textBox1.Text = RandomString(100);
-            //Properties.Settings.Default.Save();
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             //Calculates the MIME from a string selected from the listbox
@@ -600,10 +651,45 @@ namespace Encryption_algo
         #endregion
 
         #region BackgroundWorkers
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            checkupdate();
+            checkupdate(); 
         }
         #endregion
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            //Sets random string everytime we touch this button
+            textBox1.Text += RandomString(10);
+            //Properties.Settings.Default.Save();
+        }
+
+        private void button8_MouseEnter(object sender, EventArgs e)
+        {
+            //Sets random string everytime we touch this button
+            textBox1.Text += RandomString(10);
+            //Properties.Settings.Default.Save();
+        }
+
+        private void button9_MouseEnter(object sender, EventArgs e)
+        {
+            //Sets random string everytime we touch this button
+            textBox1.Text += RandomString(10);
+            //Properties.Settings.Default.Save();
+        }
+
+        private void button10_MouseEnter(object sender, EventArgs e)
+        {
+            //Sets random string everytime we touch this button
+            textBox1.Text += RandomString(10);
+            //Properties.Settings.Default.Save();
+        }
+
+        private void button11_MouseEnter(object sender, EventArgs e)
+        {
+            //Sets random string everytime we touch this button
+            textBox1.Text += RandomString(10);
+            //Properties.Settings.Default.Save();
+        }
     }
 }

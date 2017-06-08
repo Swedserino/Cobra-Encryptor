@@ -51,7 +51,7 @@ namespace Encryption_algo
             catch (Exception)
             {
                 return "Error while calculating MIME";
-            }
+            }           
         }
         #endregion
 
